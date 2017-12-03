@@ -13,4 +13,4 @@ app.post("/", function (req, res) {
     res.contentType('application/xml');
     res.sendFile(__dirname+'/public/welcome.vxml');
 })
-app.listen(3000);
+app.listen(process.env.PORT||3000);
