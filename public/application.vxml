@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml xmlns="http://www.w3.org/2001/vxml" 
+      version="2.1" 
+      xml:lang="en-US">
+        <var name="Discolouration" expr="null"/>
+        <var name="IssueType" expr="null"/>
+       <link event="event.help">
+        <grammar root="root_rule" src="/grammars/help.grxml#Help" type="application/srgs+xml"/>
+        </link>
+        <catch event="nomatch noinput">
+         I'm sorry. I didn't get that.
+         <reprompt/>
+        </catch>
+  
+ <catch event="event.help">
+ <prompt>Okay, I'll be glad to help you out with queries related to water quality issues.<break/> Please Tell the type of issue you may be having with water quality</prompt>
+ </catch>
+  
+</vxml>

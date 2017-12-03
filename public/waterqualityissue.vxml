@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml xmlns="http://www.w3.org/2001/vxml" 
+      version="2.1" 
+      xml:lang="en-US" application="application.vxml">
+<form id="quality_selection">
+<field name="water_quality_selection">
+ <grammar mode="voice"
+         root="root_rule"
+         tag-format="semantics/1.0"
+         type="application/srgs+xml"
+         version="1.0"
+         xml:lang="en-US">
+      <rule id="root_rule" scope="public">
+         <one-of>
+            <item>
+              <item repeat="0-1">Water 
+              <one-of>
+              <item>Appearence<tag>out["water_quality_selection"]="Discoloration";</tag></item>
+              <item>Discolouration<tag>out["water_quality_selection"]="Discoloration";</tag></item>
+              <item>Discoloration<tag>out["water_quality_selection"]="Discoloration";</tag></item></one-of></item> 
+            </item>
+            <item>
+               Water Taste<tag>out["water_quality_selection"]="Taste";</tag>
+            </item>
+              <item>
+               Water Smell<tag>out["water_quality_selection"]="Smell";</tag>
+            </item>
+            <item>
+               Other Issues<tag>out["water_quality_selection"]="Other Issues";</tag>
+            </item>
+
+         </one-of>
+      </rule>
+
+   </grammar>
+   <filled>
+     <if cond="water_quality_selection=='Discoloration'">
+     <assign name="IssueType" expr="'Water Discolouration'" />
+     <goto next="discolouration.vxml"/>
+     <elseif cond="water_quality_selection=='Taste'"/>
+     <prompt>Sorry No Services at the moment</prompt>
+      <elseif cond="water_quality_selection=='Smell'"/>
+      <prompt>Sorry No Services at the moment</prompt>
+<elseif cond="water_quality_selection=='Other Issues'"/>
+   <prompt>Sorry No Services at the moment</prompt>
+<else/>
+<prompt>Sorry!<break size="small"/><value expr="water_quality_selection"/>We are not providing the Services. Please Choose Water Quality Issues like <break size="small"/> Water Discoloration <break size="small"/> Water Taste <break size="small"/> Water Smell <break size="small"/> Other Issues </prompt>
+<goto next="#quality_selection"/>
+</if>
+   </filled>
+</field>
+</form>
+</vxml>

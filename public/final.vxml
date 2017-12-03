@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml xmlns="http://www.w3.org/2001/vxml" 
+      version="2.1" 
+      xml:lang="en-US" application="application.vxml">
+<form id="finalp_selection">
+<field name="final_selection">
+<grammar mode="voice"
+         root="root_rule5"
+         tag-format="semantics/1.0"
+         type="application/srgs+xml"
+         version="1.0"
+         xml:lang="en-US">
+         <rule id="root_rule5" scope="public">
+          <one-of>
+           <item>No</item>
+           <item>Yes</item>
+          </one-of>
+         </rule>
+ </grammar>
+ <filled>
+  <if cond="final_selection=='No'">
+  <prompt>Thanks for knowing about Yorkshire water services <break size="small"/> have a nice day</prompt>
+  <exit/>
+  </if>
+  <if cond="final_selection=='Yes'">
+  <prompt>Press 1 to know about any other discoloration <break size="small"/>Press 2 to for any issues <break size="small"/>Press 3 for main menu</prompt>
+  </if>
+ </filled>        
+</field>
+<field  name="dtmf_selection">
+  <grammar mode="dtmf" version="1.0" root="top">
+  <rule id="top">
+  <one-of>
+  <item>1</item>
+  <item>2</item>
+  <item>3</item>
+  </one-of>
+  </rule>
+  </grammar>
+  <filled>
+ <script>
+               <![CDATA[
+                  var next_destination = "";
+                  switch (dtmf_selection){
+
+                  case "1" :
+                    next_destination = "discolouration.vxml";
+                    break;
+
+                  case "2" :
+                    next_destination = "issue.vxml";
+                    break;
+                    
+
+                  case "3" :
+                    next_destination = "welcome.vxml";
+                    break;
+                  default:
+                    next_destination = "#finalp_selection"
+                    break;
+                 }
+               ]]>
+            </script>
+            <goto expr="next_destination"/>
+            </filled>
+</field>
+</form>
+</vxml>

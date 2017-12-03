@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml xmlns="http://www.w3.org/2001/vxml" 
+      version="2.1" 
+      xml:lang="en-US" application="application.vxml">
+<form id="discoloration_selection">
+<field name="water_discoloration_selection">
+<prompt>Tell your Discolouration type</prompt>
+ <grammar mode="voice"
+         root="root_rule3"
+         tag-format="semantics/1.0"
+         type="application/srgs+xml"
+         version="1.0"
+         xml:lang="en-US">
+         <rule id="root_rule3" scope="public">
+          <one-of>
+            <item>Tea<tag>out["water_discoloration_selection"]="Tea";</tag></item>
+            <item>Orange<tag>out["water_discoloration_selection"]="Orange";</tag></item>
+            <item>Milky<tag>out["water_discoloration_selection"]="Milky";</tag></item> 
+            <item>Black<tag>out["water_discoloration_selection"]="Black";</tag></item> 
+            <item>Blue<tag>out["water_discoloration_selection"]="Blue";</tag></item>
+            <item>Mouldy<tag>out["water_discoloration_selection"]="Mouldy";</tag></item>
+         </one-of>
+         </rule>
+</grammar>
+<filled>
+  <if cond="water_discoloration_selection=='Tea' &amp;&amp; water_discoloration_selection$.confidence>0.5">
+  <prompt>Run the first incoming cold water tap for a couple of minutes<break size="small"/>While your water is discoloured, don’t run the hot water tap or use any appliances fed by your hot water supply such as your dishwasher or washing machine<break size="small"/>Is there anything else I can help with?</prompt>
+  <assign name="Discolouration" expr="'Tea'" />
+   <goto next="issue.vxml"/>
+   <elseif cond="water_discoloration_selection=='Orange'  &amp;&amp; water_discoloration_selection$.confidence>0.5"/>
+   <prompt>Run the first incoming cold water tap for a couple of minutes<break size="small"/>While your water is discoloured, don’t run the hot water tap or use any appliances fed by your hot water supply such as your dishwasher or washing machine<break size="small"/>Is there anything else I can help with?</prompt>
+   <assign name="Discolouration" expr="'Orange'" />
+    <goto next="issue.vxml"/>
+    <elseif cond="water_discoloration_selection=='Milky'  &amp;&amp; water_discoloration_selection$.confidence>0.5"/>
+    <prompt>Fill a glass with water<break size="small"/>Leave to stand for a few minutes<break size="small"/>The air bubbles will rise to the surface and the cloudy appearance will clear from the bottom of the glass. If the air is coming from the mains, you can run your taps to help flush the cloudy water through<break size="small"/>Is there anything else I can help with?</prompt>
+    <assign name="Discolouration" expr="'Milky'" />
+     <goto next="issue.vxml"/>
+    <elseif cond="water_discoloration_selection=='Black'  &amp;&amp; water_discoloration_selection$.confidence>0.5"/>
+    <prompt>Water with Black Discolouration is normally short lived and would clear by allowing the first incoming cold water tap to run for 5 mins. <break size="small"/> If it is for a short term, and you need water for drinking or cooking, please follow this advice<break size="small"/>Is there anything else I can help with?</prompt>
+    <assign name="Discolouration" expr="'Black'" />
+     <goto next="issue.vxml"/>
+    <elseif cond="water_discoloration_selection=='Blue'  &amp;&amp; water_discoloration_selection$.confidence>0.5"/>
+    <prompt>If your water is blue, please don’t drink the water or use it for cooking purposes.<break size="small"/>Is there anything else I can help with?</prompt>
+    <assign name="Discolouration" expr="'Blue'" />
+     <goto next="issue.vxml"/>
+    <elseif cond="water_discoloration_selection=='Mouldy'  &amp;&amp; water_discoloration_selection$.confidence>0.5"/>
+    <prompt>Mouldy or slimy water can be caused by dirty tap fittings which can easily be solved by cleaning them inside and outside with a small brush (such as an old toothbrush) dipped in a mild solution of bleach</prompt>
+    <assign name="Discolouration" expr="'Mouldy'  &amp;&amp; water_discoloration_selection$.confidence>0.5" />
+     <goto next="issue.vxml"/>
+   <else/>
+   <prompt>Please provide proper Discolouration type like black, blue etc.,</prompt>
+   <assign name="Discolouration" expr="null" />
+   <goto next="#discoloration_selection"/>
+  </if>
+</filled>
+</field>
+</form>
+</vxml>

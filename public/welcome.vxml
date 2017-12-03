@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml xmlns="http://www.w3.org/2001/vxml" 
+      version="2.1" 
+      xml:lang="en-US" application="application.vxml">
+<form id="WelcomeYorkshire">
+<field name="main_selection">
+<prompt>
+   Welcome to Yorkshire Water Services.
+</prompt>
+<grammar root="root_rule" src="/grammars/Yorkshire.grxml#Hello" type="application/srgs+xml"/>
+<filled>
+<if cond="main_selection$.confidence > 0.75">
+  <if cond="main_selection=='Welcome'">
+  <prompt>Hello! I'm Ava and I can help you with inquiries on water quality.<break size="small"/>Please Tell the type of issue you may be having with water quality</prompt>
+  <goto next="waterqualityissue.vxml"/>
+  </if>
+<else/>
+  <prompt> That may be beyond my abilities at the moment.</prompt>
+ <goto next="#WelcomeYorkshire"/>
+</if>
+</filled>
+
+</field>
+
+</form>
+</vxml>

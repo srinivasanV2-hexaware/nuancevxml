@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml xmlns="http://www.w3.org/2001/vxml" 
+      version="2.1" 
+      xml:lang="en-US" application="application.vxml">
+<form id="issue_selection">
+<field name="water_issue_selection">
+<prompt>Please ask like what causes this?,<break size="small"/> is this harmful</prompt>
+ <grammar mode="voice"
+         root="root_rule4"
+         tag-format="semantics/1.0"
+         type="application/srgs+xml"
+         version="1.0"
+         xml:lang="en-US">
+         <rule id="root_rule4" scope="public">
+          <one-of>
+            <item>What causes this<tag>out["water_issue_selection"]="causes";</tag></item>
+            <item>Is this harmful<tag>out["water_issue_selection"]="harmful";</tag></item>
+         </one-of>
+         </rule>
+</grammar>
+<filled>
+<prompt><value expr="Discolouration"/></prompt>
+ <if cond="water_issue_selection=='causes' &amp;&amp; water_issue_selection$.confidence>0.5">
+ <if cond="Discolouration=='Tea'">
+ <prompt>Tea coloured water is usually caused by<break size="small"/>Iron and,Manganese deposits<break size="small"/>These generally settle in the water mains<break size="small"/>Anything else?</prompt>
+ <goto next="final.vxml"/>
+ <elseif cond="Discolouration=='Orange'"/>
+ <prompt>Orange coloured water is usually caused by<break size="small"/>Iron and,Manganese deposits<break size="small"/>These generally settle in the water mains<break size="small"/>Anything else?</prompt>
+ <goto next="final.vxml"/>
+<elseif cond="Discolouration=='Milky'"/>
+<prompt>Cloudy or milky water caused by air is perfectly safe to drink and use.<break size="small"/><break size="small"/>Anything else?</prompt>
+<goto next="final.vxml"/>
+<elseif cond="Discolouration=='Black'"/>
+<prompt>Black coloured water is usually caused by<break size="small"/>Iron and,Manganese deposits<break size="small"/>These generally settle in the water mains<break size="small"/>Anything else?</prompt>
+<goto next="final.vxml"/>
+<elseif cond="Discolouration=='Blue'"/>
+<prompt>Blue water is very rare, but when it happens it is usually due to one of two reasons<break size="small"/>Corrosion of copper plumbing<break size="small"/>Blue-coloured disinfectant in toilet cisterns. <break size="small"/>Anything else?</prompt>
+<goto next="final.vxml"/>
+<elseif cond="Discolouration=='Mouldy'"/>
+<prompt>Water can appear cloudy or milky when mains pressure causes air to mix with the water supply when we are carrying out repairs<break size="small"/>Anything else?</prompt>
+<goto next="final.vxml"/>
+</if>
+<elseif  cond="water_issue_selection=='harmful' &amp;&amp; water_issue_selection$.confidence>0.5"/>
+<if cond="Discolouration=='Tea'">
+<prompt>In our experience, water with Tea Discolouration caused by main deposits is unlikely to be harmful to health.<break size="small"/>Anything else?</prompt>
+ <goto next="final.vxml"/>
+<elseif cond="Discolouration=='Orange'"/>
+<prompt>In our experience, water with Orange Discolouration caused by main deposits is unlikely to be harmful to health.<break size="small"/>Anything else?</prompt>
+ <goto next="final.vxml"/>
+<elseif cond="Discolouration=='Milky'"/>
+<prompt>Cloudy or milky water caused by air is perfectly safe to drink and use.<break size="small"/>Anything else?</prompt>
+ <goto next="final.vxml"/>
+<elseif cond="Discolouration=='Black'"/>
+<prompt>In my experience, water with Black Discolouration caused by main deposits is unlikely to be harmful to health.<break size="small"/>Anything else?</prompt>
+ <goto next="final.vxml"/>
+<elseif cond="Discolouration=='Blue'"/>
+<prompt>If your water is blue, please don’t drink the water or use it for cooking purposes.<break size="small"/>Anything else?</prompt>
+<goto next="final.vxml"/>
+<elseif cond="Discolouration=='Mouldy'"/>
+<prompt>Moulds and slime can be extremely unhygienic and may cause infections.<break size="small"/> Please try to prevent it as much as possible by keeping the environment clean<break size="small"/>Anything else?</prompt>
+ <goto next="final.vxml"/>
+ </if>
+ <else/>
+ <prompt>Sorry! I cant get that, <break size="small"/>Please ask like what causes this?,<break size="small"/> is this harmful</prompt>
+ <goto next="#issue_selection"/>
+ </if>
+ </filled>
+</field>
+</form>
+</vxml>
