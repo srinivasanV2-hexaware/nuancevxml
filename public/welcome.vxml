@@ -25,10 +25,10 @@
 <filled>
 <if cond="main_selection$.confidence > 0.75">
   <if cond="main_selection=='spelled'">
-  <prompt> You have wrongly spelled.</prompt>
+  <prompt> <value expr="main_selection"> You have spelled correctly.</prompt>
   </if>
 <else/>
-  <prompt> You have spelled correctly.</prompt>
+  <prompt> You have wrongly correctly.</prompt>
  <goto next="#WelcomeYorkshire"/>
 </if>
 </filled>
