@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vxml xmlns="http://www.w3.org/2001/vxml" 
       version="2.1" 
-      xml:lang="en-US" application="application.vxml">
+      xml:lang="en-GB">
 <form id="WelcomeYorkshire">
 <field name="main_selection">
-<prompt>
-   Welcome to Yorkshire Water Services.
+<prompt xml:lang="en-in">
+You have spelled correctly
 </prompt>
-<grammar root="root_rule" src="/grammars/Yorkshire.grxml#Hello" type="application/srgs+xml"/>
+<grammar mode="voice"
+         root="root_rule3"
+         tag-format="semantics/1.0"
+         type="application/srgs+xml"
+         version="1.0"
+         xml:lang="en-gb">
+         <rule id="root_rule3" scope="public">
+          <one-of>
+            <item>accessorise<tag>out["water_discoloration_selection"]="spelled";</tag></item>
+            <item>aeon<tag>out["water_discoloration_selection"]="spelled";</tag></item>
+            <item>analyse<tag>out["water_discoloration_selection"]="spelled";</tag></item> 
+            <item>apologise<tag>out["water_discoloration_selection"]="spelled";</tag></item> 
+            <item>armour<tag>out["water_discoloration_selection"]="spelled";</tag></item>
+            <item>baptise<tag>out["water_discoloration_selection"]="spelled";</tag></item>
+         </one-of>
+         </rule>
+</grammar>
 <filled>
 <if cond="main_selection$.confidence > 0.75">
-  <if cond="main_selection=='Welcome'">
-  <prompt>Hello! I'm Ava and I can help you with inquiries on water quality.<break size="small"/>Please Tell the type of issue you may be having with water quality</prompt>
-  <goto next="waterqualityissue.vxml"/>
+  <if cond="main_selection=='accessorise'">
+  <prompt> You have wrongly spelled.</prompt>
   </if>
 <else/>
-  <prompt> That may be beyond my abilities at the moment.</prompt>
+  <prompt> You have wrongly spelled.</prompt>
  <goto next="#WelcomeYorkshire"/>
 </if>
 </filled>
