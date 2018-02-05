@@ -24,7 +24,7 @@
 </grammar>
 <filled>
 <if cond="main_selection$.confidence > 0.75">
-  <prompt> <value expr="main_selection"/> You have spelled correctly.</prompt>
+  <prompt> You have spelled correctly.</prompt>
 <else/>
   <prompt> You have wrongly spelled UK letters.</prompt>
  <goto next="#WelcomeYorkshire"/>
