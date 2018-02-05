@@ -26,7 +26,7 @@ You have spelled correctly
 </grammar>
 <filled>
 <if cond="main_selection$.confidence > 0.75">
-  <if cond="main_selection=='accessorise'">
+  <if cond="main_selection=='spelled'">
   <prompt> You have wrongly spelled.</prompt>
   </if>
 <else/>
@@ -34,8 +34,6 @@ You have spelled correctly
  <goto next="#WelcomeYorkshire"/>
 </if>
 </filled>
-
 </field>
-
 </form>
 </vxml>
