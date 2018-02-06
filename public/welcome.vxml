@@ -4,13 +4,13 @@
       xml:lang="en-GB">
 <form id="WelcomeYorkshire">
 <field name="main_selection">
-<prompt xml:lang="en-gb">You have spelled correctly</prompt>
+<prompt xml:lang="en-UK">You have spelled correctly</prompt>
 <grammar mode="voice"
          root="root_rule3"
          tag-format="semantics/1.0"
          type="application/srgs+xml"
          version="1.0"
-         xml:lang="en-gb">
+         xml:lang="en-UK">
          <rule id="root_rule3" scope="public">
           <one-of>
             <item>accessorise</item>
