@@ -13,12 +13,12 @@
          xml:lang="en-gb">
          <rule id="root_rule3" scope="public">
           <one-of>
-            <item>accessorise<tag>out["water_discoloration_selection"]="spelled";</tag></item>
-            <item>aeon<tag>out["water_discoloration_selection"]="spelled";</tag></item>
-            <item>analyse<tag>out["water_discoloration_selection"]="spelled";</tag></item> 
-            <item>apologise<tag>out["water_discoloration_selection"]="spelled";</tag></item> 
-            <item>armour<tag>out["water_discoloration_selection"]="spelled";</tag></item>
-            <item>baptise<tag>out["water_discoloration_selection"]="spelled";</tag></item>
+            <item>accessorise<tag>out["main_selection"]="spelled";</tag></item>
+            <item>aeon<tag>out["main_selection"]="spelled";</tag></item>
+            <item>analyse<tag>out["main_selection"]="spelled";</tag></item> 
+            <item>apologise<tag>out["main_selection"]="spelled";</tag></item> 
+            <item>armour<tag>out["main_selection"]="spelled";</tag></item>
+            <item>baptise<tag>out["main_selection"]="spelled";</tag></item>
          </one-of>
          </rule>
 </grammar>
