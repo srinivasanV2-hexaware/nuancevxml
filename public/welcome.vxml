@@ -14,23 +14,19 @@ Sagen etwas jetzt.  Sie vergeuden meine Zeit.
          version="1.0"
          xml:lang="en-gb">
          <rule id="root_rule3" scope="public">
-          <one-of>
-            <item>accessorise</item>
-            <item>aeon</item>
-            <item>analyse</item> 
-            <item>apologise</item> 
-            <item>armour</item>
-            <item>baptise</item>
-            <item>letter</item>
-         </one-of>
+         <one-of>
+				<item>ja</item>
+				<item>nein</item>
+				<item>anschlag</item>
+		  	</one-of>
          </rule>
 </grammar>
 <filled>
 <if cond="main_selection$.confidence > 0.75">
-  <prompt><value expr="main_selection"/> Confidence is <value expr="main_selection$.confidence"/> You have spelled correctly.</prompt>
+  <prompt><value expr="main_selection"/> You have spelled correctly.</prompt>
   <goto next="#WelcomeYorkshire"/>
 <else/>
-  <prompt> You have wrongly spelled UK letters.</prompt>
+  <prompt>You have wrongly spelled. <value expr="main_selection"/> Swiss German	language.</prompt>
  <goto next="#WelcomeYorkshire"/>
 </if>
 </filled>
