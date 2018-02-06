@@ -19,6 +19,7 @@
             <item>apologise<tag>out["main_selection"]="spelled";</tag></item> 
             <item>armour<tag>out["main_selection"]="spelled";</tag></item>
             <item>baptise<tag>out["main_selection"]="spelled";</tag></item>
+            <item>letter<tag>out["main_selection"]="spelled";</tag></item>
          </one-of>
          </rule>
 </grammar>
