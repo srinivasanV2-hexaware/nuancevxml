@@ -26,7 +26,7 @@ Sagen etwas jetzt.  Sie vergeuden meine Zeit.
   <prompt><value expr="main_selection"/> You have spelled correctly.</prompt>
   <goto next="#WelcomeYorkshire"/>
 <else/>
-  <prompt>You have wrongly spelled. <value expr="main_selection"/> Swiss German	language.</prompt>
+  <prompt>You have <break size="medium"/> wrongly spelled. Swiss German	language.</prompt>
  <goto next="#WelcomeYorkshire"/>
 </if>
 </filled>
