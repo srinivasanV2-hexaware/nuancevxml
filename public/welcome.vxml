@@ -5,14 +5,13 @@
 <form id="WelcomeYorkshire">
 <field name="main_selection">
 <prompt  xml:lang="de-de">In welchem Ort möchten Sie übernachten? <break size="medium"/>
-Sagen etwas jetzt.  Sie vergeuden meine Zeit.
-</prompt>
+Sagen etwas jetzt.  Sie vergeuden meine Zeit.</prompt>
 <grammar mode="voice"
          root="root_rule3"
          tag-format="semantics/1.0"
          type="application/srgs+xml"
          version="1.0"
-         xml:lang="en-gb">
+         xml:lang="de-de">
          <rule id="root_rule3" scope="public">
          <one-of>
 				<item>ja</item>
@@ -26,7 +25,7 @@ Sagen etwas jetzt.  Sie vergeuden meine Zeit.
   <prompt><value expr="main_selection"/> You have spelled correctly.</prompt>
   <goto next="#WelcomeYorkshire"/>
 <else/>
-  <prompt>You have <break size="medium"/> wrongly spelled. Swiss German	language.</prompt>
+  <prompt>You have <break size="medium"/> wrongly spelled.</prompt>
  <goto next="#WelcomeYorkshire"/>
 </if>
 </filled>
