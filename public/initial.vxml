@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE vxml PUBLIC "-//Nuance/DTD VoiceXML 2.0//EN" "http://voicexml.nuance.com/dtd/nuancevoicexml-2-0.dtd">
+<vxml xmlns="http://www.w3.org/2001/vxml" 
+      version="2.1" 
+      xml:lang="en-US">
+    <form id="Welcome">
+      <block>
+<audio src="pause:750"/>
+<audio src="../prompts/nuancebrand8k.wav"/>        
+<audio src="../prompts/notes.wav"/>
+
+<goto next="welcome.vxml"/>
+      </block>
+  </form>
+</vxml>
+
