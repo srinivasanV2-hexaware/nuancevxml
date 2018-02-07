@@ -4,8 +4,6 @@
       xml:lang="en-GB">
 <form id="WelcomeYorkshire">
 <field name="main_selection">
-<!--<prompt  xml:lang="de-de">In welchem Ort möchten Sie übernachten? <break size="medium"/>
-Sagen etwas jetzt.  Sie vergeuden meine Zeit.</prompt>-->
 <prompt>Please Select your mode of travel</prompt>
 <grammar mode="voice"
          root="root_rule3"
@@ -15,10 +13,7 @@ Sagen etwas jetzt.  Sie vergeuden meine Zeit.</prompt>-->
          xml:lang="en-gb">
          <rule id="root_rule3" scope="public">
          <one-of>
-				<!--<item>ja</item>
-				<item>nein</item>
-				<item>anschlag</item>-->
-        <item>Train</item>
+			   <item>Train</item>
 				<item>Bus</item>
 				<item>Aeroplane</item>
 		  	</one-of>
@@ -52,94 +47,3 @@ Sagen etwas jetzt.  Sie vergeuden meine Zeit.</prompt>-->
 </field>
 </form>
 </vxml>
-<!--<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE vxml PUBLIC "-//Nuance/DTD VoiceXML 2.0//EN" "http://voicexml.nuance.com/dtd/nuancevoicexml-2-0.dtd">
-<vxml xmlns="http://www.w3.org/2001/vxml" 
-      version="2.1" 
-      xml:lang="en-US"  application="application.vxml">
-<form id="NotesAssist">
-<field name="notes_assist">
-<grammar mode="voice"
-         root="root13"
-         tag-format="semantics/1.0"
-         type="application/srgs+xml"
-         version="1.0"
-         xml:lang="en-US">
-         <rule id="root13" scope="public">
-          <one-of>
-<item>yes <tag>out["notes_assist"]="yes_intent"; </tag></item>
-<item>yeah go ahead <tag>out["notes_assist"]="yes_intent"; </tag> </item>
-<item>yep <tag>out["notes_assist"]="yes_intent"; </tag> </item>
-<item>yup <tag>out["notes_assist"]="yes_intent"; </tag> </item>
-<item>yeah <tag>out["notes_assist"]="yes_intent"; </tag> </item>
-<item>yes record the conversation <tag>out["notes_assist"]="yes_intent"; </tag> </item>
-<item>yes carry on <tag>out["notes_assist"]="yes_intent"; </tag></item>
-<item>yeah carry on <tag>out["notes_assist"]="yes_intent"; </tag> </item>
-<item>yep carry on <tag>out["notes_assist"]="yes_intent"; </tag> </item>
-<item>sure go ahead <tag>out["notes_assist"]="yes_intent"; </tag> </item>
-<item>record it<tag>out["notes_assist"]="yes_intent"; </tag> </item>
-<item>record <tag>out["notes_assist"]="yes_intent"; </tag> </item>
-<item>yes record it <tag>out["notes_assist"]="yes_intent"; </tag> </item>
-<item>go ahead<tag>out["notes_assist"]="yes_intent"; </tag> </item>
-<item>no<tag>out["notes_assist"]="yes_intent"; </tag></item>
-<item>nope<tag>out["notes_assist"]="yes_intent"; </tag></item>
-<item>nah<tag>out["notes_assist"]="yes_intent"; </tag></item>
-<item>no need<tag>out["notes_assist"]="yes_intent"; </tag></item>
-<item>not required<tag>out["notes_assist"]="yes_intent"; </tag></item>
-
-</one-of>
-         </rule>
-</grammar>
-<nomatch><audio src="../prompts/sorry_under.wav"/><audio src="../prompts/yesorno.wav"></audio></nomatch>
-<noinput><audio src="../prompts/any_hear.wav"/><audio src="../prompts/yesorno.wav"></audio></noinput>
-<filled>
-<if cond="notes_assist$.confidence > 0.5">
-<if cond="notes_assist=='yes_intent'">
-<goto next="Meeting.vxml"/>
-</if>
-
-<else/>
-<prompt><audio src="../prompts/abilities.wav"/>
-<audio src="../prompts/anything_else.wav"/>
-</prompt>
-</if>
-
-</filled>
-
-</field>
-<field name="EmployeeId" type="digits?length=5">
-    <prompt><audio src="../prompts/five_digit_meet.wav"/></prompt>
-        <noinput><audio src="../prompts/any_hear.wav"/><audio src="../prompts/five_digit_meet.wav"/></noinput>
-        <nomatch><audio src="../prompts/sorry_under.wav"/></nomatch>
-        <grammar 
-mode="dtmf" version="1.0" root="pin"
-tag-format="semantics/1.0">
-<rule id="digit">
-<one-of>
-<item> 0 </item>
-<item> 1 </item>
-<item> 2 </item>
-<item> 3 </item>
-<item> 4 </item>
-<item> 5 </item>
-<item> 6 </item>
-<item> 7 </item>
-<item> 8 </item>
-<item> 9 </item>
-</one-of>
-</rule>
-
-<rule id="pin">
-<tag>out=""</tag>
-<item repeat="5">
-<ruleref uri="#digit"/>
-<tag>out += rules.latest( );</tag>
-</item>
-</rule>
-</grammar>
-<filled> This is your meeting ID, now recording starts <value expr="EmployeeId"/></filled> 
-<goto next="record.vxml"/>
-</field>
-</form>
-
-</vxml>-->
