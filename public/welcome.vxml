@@ -5,7 +5,7 @@
       xml:lang="en-US">
 <form id="WelcomeYorkshire">
 <field name="main_selection">
-<prompt>Please Select your mode of travel</prompt>
+<prompt>Please Select your preferred mode of travel</prompt>
 <grammar mode="voice"
          root="root_rule3"
          tag-format="semantics/1.0"
